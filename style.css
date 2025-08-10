@@ -1,0 +1,20 @@
+/* Background and text color */
+[data-testid="stAppViewContainer"] {
+    background-color: rgb(195, 230, 243);
+    color: antiquewhite;
+}
+
+/* Headings (h1) */
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(241, 42, 7) !important;
+    font-weight: bold;
+}
+
+/* Buttons */
+.stButton>button {
+    background-color: lightblue;
+    color: black;
+    font-weight: bold;
+    border-radius: 10px;
+}
