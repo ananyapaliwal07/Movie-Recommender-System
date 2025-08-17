@@ -13,7 +13,8 @@ local_css("style.css")
 movies = pickle.load(open('movies.pkl', 'rb'))
 
 if not os.path.exists("similarity.pkl"):
-    url = "https://drive.google.com/uc?export=download&id=1yWstMhkFNaVDYyCgbLH5xG6Ostvs0v2T"
+    
+    url = "https://drive.google.com/file/d/1yWstMhkFNaVDYyCgbLH5xG6Ostvs0v2T/view?usp=drive_link"
     response = requests.get(url)
     with open("similarity.pkl","wb") as f:
         f.write(response.content)
