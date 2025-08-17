@@ -2,10 +2,9 @@ import streamlit as st
 import pickle
 import pandas as pd
 import time
-import os
-os.system("pip install gdown")
-import gdown
 import pickle
+import requests
+import os
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
@@ -14,9 +13,10 @@ local_css("style.css")
 movies = pickle.load(open('movies.pkl', 'rb'))
 
 if not os.path.exists("similarity.pkl"):
-    url = "https://drive.google.com/uc?id=1yWstMhkFNaVDYyCgbLH5xG6Ostvs0v2T"
-    gdown.download(url, "similarity.pkl", quiet=False)
-
+    url = "https://drive.google.com/uc?export=download&id=1yWstMhkFNaVDYyCgbLH5xG6Ostvs0v2T"
+    response = requests.get(url)
+    with open("similarity.pkl","wb") as f:
+        f.write(response.content)
 with open("similarity.pkl", "rb") as f:
     similarity = pickle.load(f)
 def recommend(movie):
