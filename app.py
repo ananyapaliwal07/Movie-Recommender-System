@@ -13,13 +13,15 @@ local_css("style.css")
 movies = pickle.load(open('movies.pkl', 'rb'))
 
 if not os.path.exists("similarity.pkl"):
-    
-    url = "https://drive.google.com/file/d/1yWstMhkFNaVDYyCgbLH5xG6Ostvs0v2T/view?usp=drive_link"
+    file_id = "1yWstMhkFNaVDYyCgbLH5xG6Ostvs0v2T"
+    url = f"https://drive.google.com/uc?export=download&id={file_id}"
     response = requests.get(url)
     with open("similarity.pkl","wb") as f:
         f.write(response.content)
 with open("similarity.pkl", "rb") as f:
     similarity = pickle.load(f)
+print("Downloaded file size:", os.path.getsize("similarity.pkl"))
+
 def recommend(movie):
     index = movies[movies['title']==movie].index[0]
     distances = similarity[index]
