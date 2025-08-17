@@ -3,16 +3,25 @@
 A content-based movie recommendation system built with Python and Streamlit. Enter your favorite movie and get smart recommendations instantly.
 
 🚀 Features
+
 -Movie recommendations based on cosine similarity
+
 -Interactive web app using Streamlit
+
 -Clean UI with custom CSS
+
 -Dataset includes thousands of movies
 
 🛠️ Tech Stack
+
 -Python
+
 -Streamlit
+
 -Pandas / NumPy
+
 -Scikit-learn (cosine similarity)
+
 -Pickle (for saving similarity matrix)
 
 📂 Project Structure
