@@ -2,10 +2,10 @@ import streamlit as st
 import pickle
 import pandas as pd
 import time
-import gdown
-import pickle
 import os
 os.system("pip install gdown")
+import gdown
+import pickle
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
