@@ -3,25 +3,14 @@ import pickle
 import pandas as pd
 import time
 import pickle
-import requests
-import os
+
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 local_css("style.css")
 movies = pickle.load(open('movies.pkl', 'rb'))
-
-if not os.path.exists("similarity.pkl"):
-    file_id = "1yWstMhkFNaVDYyCgbLH5xG6Ostvs0v2T"
-    url = f"https://drive.google.com/uc?export=download&id={file_id}"
-    response = requests.get(url)
-    with open("similarity.pkl","wb") as f:
-        f.write(response.content)
-with open("similarity.pkl", "rb") as f:
-    similarity = pickle.load(f)
-print("Downloaded file size:", os.path.getsize("similarity.pkl"))
-
+similarity = pickle.load(open("similarity.pkl", "rb"))
 def recommend(movie):
     index = movies[movies['title']==movie].index[0]
     distances = similarity[index]
